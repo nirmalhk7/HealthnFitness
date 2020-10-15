@@ -4,8 +4,35 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+
+const mongoose = require("mongoose");
+const expressjwt = require("express-jwt");
+const jwt = require("express-jwt");
+
+
+mongoose.set("useCreateIndex", true);
+const url = "mongodb://localhost:19000/hackccelerate";
+// mongoose.connection.db.dropCollection('hackccelerate',(err,res)=>console.log(err,res))
+const connect = mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
+
+connect.then(
+  (db) => {
+    console.log("Connected successfully to Mongoose!");
+  },
+  (err) => {
+    console.error("Mongoose",err);
+  }
+);
+
+const jwtCheck = expressjwt({
+  secret: "hackccelerate",
+  algorithms: ["HS256"],
+});
 
 var app = express();
 
@@ -19,8 +46,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/auth', require('./routes/auth'));
+app.use('/', jwtCheck,require('./routes/demo'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
