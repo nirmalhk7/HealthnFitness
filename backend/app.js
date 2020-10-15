@@ -7,6 +7,29 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
+const mongoose = require("mongoose");
+const expressjwt = require("express-jwt");
+const jwt = require("express-jwt");
+
+mongoose.set("useCreateIndex", true);
+const url = "mongodb://localhost:19000/hackerearth";
+const connect = mongoose.connect(url, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
+connect.then(
+  (db) => {
+    console.log("Connected successfully!");
+  },
+  (err) => {
+    console.error(err);
+  }
+);
+
+
+
 var app = express();
 
 // view engine setup
