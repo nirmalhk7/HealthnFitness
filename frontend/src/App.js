@@ -1,6 +1,6 @@
 import React from "react";
 // import logo from "./logo.svg";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { Homepage } from "./components/homepage";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
@@ -14,21 +14,28 @@ import "./assets/css/magnific-popup.css";
 
 // import "./assets/css/flaticon.css"
 import "./assets/css/style.css";
-import Navbar from "./components/navbar";
+import Navbar from "./partials/navbar";
 import Footer from "./partials/footer";
+import FindProfessionals, { SingleProfessional } from "./components/Professionals";
 
-function App() {
+function App(props) {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Switch>
           <Route exact path="/" render={() => <Homepage />}></Route>
+          <Route exact path="/proffesionals" render={() => <FindProfessionals />} />
+          <Route
+            exact
+            path="/proffesionals/:name"
+            render={(props) => <SingleProfessional name={props.match.params.name} />}
+          />
           <Route exact path="/sign-in" render={() => <Login />}></Route>
           <Route exact path="/signup" render={() => <SignUp />}></Route>
         </Switch>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
