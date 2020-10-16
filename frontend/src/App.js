@@ -23,8 +23,8 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" render={() => <Homepage />}></Route>;
-          <Route exact path="/sign-in" render={() => <Login />}></Route>;
+          <Route exact path="/" render={() => <Homepage />}></Route>
+          <Route exact path="/sign-in" render={() => <Login />}></Route>
           <Route exact path="/signup" render={() => <SignUp />}></Route>
         </Switch>
         <Footer />
