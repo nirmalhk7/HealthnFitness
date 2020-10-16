@@ -47,7 +47,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/auth', require('./routes/auth'));
-app.use('/', jwtCheck,require('./routes/demo'));
+app.use('/', require('./routes/demo'));
+app.use('/profile', require('./routes/profile'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
