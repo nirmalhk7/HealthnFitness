@@ -1,0 +1,16 @@
+@media(max-width: 500px) {
+    .subtitle .subhead {
+      padding:10px;
+    }
+  }
+  footer.footer {
+    background-color: slateblue;
+    color: white;
+    text-align: center;
+  }
+  .my-image {
+    margin: auto;
+    padding-top: 0px;
+    display: block;
+    width: 400px;
+  }
