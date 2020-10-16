@@ -4,6 +4,7 @@ const mongoose = require("mongoose"),
 const jwt = require("jsonwebtoken");
 
 let UserSchema = new Schema({
+  // Required for All roles
   username: {
     type: String,
     required: true,
@@ -11,6 +12,11 @@ let UserSchema = new Schema({
   },
   name: {
     type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
   },
   password: {
     type: String,
@@ -18,22 +24,30 @@ let UserSchema = new Schema({
   },
   age: {
     type: Number,
-    // required: true,
+    required: true,
     min: 0,
     max: 100,
   },
-  gender: {
-    type: String,
-    // required: true,
-  },
+
+  // For only user role
   weight: {
     type: Number,
   },
   height: {
     type: Number,
   },
-});
 
+  // For Professionals
+  description: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  phonenumber: {
+    type: Number,
+  },
+});
 
 UserSchema.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
@@ -45,8 +59,6 @@ UserSchema.methods.getJwtToken = function () {
 
 // checking if password is valid
 UserSchema.methods.validPassword = function (password) {
-  // console.log("Comparing", password, this.password);
   return bcrypt.compareSync(password, this.password);
 };
-
 module.exports = mongoose.model("user", UserSchema);

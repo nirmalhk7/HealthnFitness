@@ -38,7 +38,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -49,6 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', require('./routes/auth'));
 app.use('/', require('./routes/demo'));
 app.use('/profile', require('./routes/profile'))
+app.use('/diet',require('./routes/diet'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
