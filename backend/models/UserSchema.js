@@ -4,6 +4,7 @@ const mongoose = require("mongoose"),
 const jwt = require("jsonwebtoken");
 
 let UserSchema = new Schema({
+// Required for All roles
   username: {
     type: String,
     required: true,
@@ -11,6 +12,11 @@ let UserSchema = new Schema({
   },
   name: {
     type: String,
+    required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
   },
   password: {
     type: String,
@@ -18,20 +24,29 @@ let UserSchema = new Schema({
   },
   age: {
     type: Number,
-    // required: true,
+    required: true,
     min: 0,
     max: 100,
   },
-  gender: {
-    type: String,
-    // required: true,
-  },
+
+// For only user role
   weight: {
     type: Number,
   },
   height: {
     type: Number,
   },
+
+// For Professionals
+  description: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  phonenumber: {
+    type: Number,
+  }
 });
 
 

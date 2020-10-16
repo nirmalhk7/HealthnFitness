@@ -14,7 +14,6 @@ router.post("/", (req, res, next) => {
 
 router.delete("/", (req, res, next) => {
   res.end("DELETE");
-  
 });
 
 router.put("/", (req, res, next) => {
