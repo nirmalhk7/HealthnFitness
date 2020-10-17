@@ -14,6 +14,7 @@ import Footer from "../partials/footer";
 import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
+import Cookies from "js-cookie";
 
 class Main extends Component {
   constructor(props) {
