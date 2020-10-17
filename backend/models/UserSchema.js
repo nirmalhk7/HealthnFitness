@@ -36,7 +36,7 @@ let UserSchema = new Schema({
   accountType:{
     type: String,
     required: true
-  }
+  },
 
   // For only user role
   weight: {

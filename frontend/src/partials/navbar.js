@@ -14,28 +14,18 @@ const Navbar = () => (
             </div>
             <div className="col-md-7">
               <div className="row">
-                <div className="col-md-8 mb-md-0 mb-3">
+                <div className="col-md-8 mb-md-0 mb-3"></div>
+                <Link to="/profile" className="col">
                   <div className="top-wrap d-flex">
                     <div className="icon d-flex align-items-center justify-content-center">
-                      <span className="fa fa-location-arrow"></span>
+                      <span className="fa fa-user" />
                     </div>
                     <div className="text">
-                      <span>Address</span>
-                      <span>198 West 21th Street, Suite 721 New York NY 10016</span>
+                      <span>Hello</span>
+                      <span>Nirmal Khedkar</span>
                     </div>
                   </div>
-                </div>
-                <div className="col">
-                  <div className="top-wrap d-flex">
-                    <div className="icon d-flex align-items-center justify-content-center">
-                      <span className="fa fa-phone"></span>
-                    </div>
-                    <div className="text">
-                      <span>Call us</span>
-                      <span>(+01) 123 456 7890</span>
-                    </div>
-                  </div>
-                </div>
+                </Link>
               </div>
             </div>
           </div>

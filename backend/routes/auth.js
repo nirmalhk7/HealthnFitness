@@ -2,6 +2,10 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/UserSchema");
 
+router.get("/signin",(req,res,next)=>{
+  User.find({}).then(ans=>res.json(ans)).catch(err=>console.log(err))
+})
+
 router.post("/signin", (req, res, next) => {
   User.findOne({ username: req.body.username })
     .then((user) => {
