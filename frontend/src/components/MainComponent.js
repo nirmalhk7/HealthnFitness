@@ -15,12 +15,10 @@ import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
 class Main extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div>
@@ -28,7 +26,7 @@ class Main extends Component {
         <Switch>
           <Route exact path="/" render={() => <Homepage />}></Route>
           <Route exact path="/contact" render={() => <ContactUs />}></Route>
-          <Route exact path="/signin" render={() => <Login />}></Route>
+          <Route exact path="/signin" render={() => <Login id={this.props.id} />}></Route>
           <Route exact path="/proffesionals" render={() => <FindProfessionals />} />
           <Route
             exact
@@ -41,5 +39,13 @@ class Main extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  console.log("MAP", state);
+  return {
+    token: state.auth.token,
+    id: state.auth.id,
+    type: state.auth.type,
+  };
+};
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default connect(mapStateToProps, null)(Main);

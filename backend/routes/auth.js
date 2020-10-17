@@ -2,17 +2,19 @@ var express = require("express");
 var router = express.Router();
 var User = require("../models/UserSchema");
 
-router.get("/signin",(req,res,next)=>{
-  User.find({}).then(ans=>res.json(ans)).catch(err=>console.log(err))
-})
+router.get("/signin", (req, res, next) => {
+  User.find({})
+    .then((ans) => res.json(ans))
+    .catch((err) => console.log(err));
+});
 
 router.post("/signin", (req, res, next) => {
-  User.findOne({ username: req.body.username })
+  User.findOne({ email: req.body.email })
     .then((user) => {
       if (user != null && user.validPassword(req.body.password)) {
-        res.json({ token: user.getJwtToken(), _id: user._id });
+        res.status(200).json({ token: user.getJwtToken(), _id: user._id });
       } else {
-        res.json({ message: "Invalid Username or Password" });
+        res.status(250).json({ message: "Invalid Username or Password" });
       }
     })
     .catch((err) => {
