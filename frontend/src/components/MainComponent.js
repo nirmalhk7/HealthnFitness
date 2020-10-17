@@ -14,6 +14,7 @@ import Footer from "../partials/footer";
 import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
+import SignUp from "./SignUp";
 
 const mapStateToProps = (state) => {
   return {
@@ -29,6 +30,7 @@ class Main extends Component {
           <Route exact path="/" render={() => <Homepage />}></Route>
           <Route exact path="/contact" render={() => <ContactUs />}></Route>
           <Route exact path="/signin" render={() => <Login />}></Route>
+          <Route exact path="/signup" render={() => <SignUp />}></Route>
           <Route exact path="/proffesionals" render={() => <FindProfessionals />} />
           <Route
             exact
