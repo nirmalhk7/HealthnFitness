@@ -10,6 +10,11 @@ let UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   name: {
     type: String,
     required: true,
@@ -28,6 +33,10 @@ let UserSchema = new Schema({
     min: 0,
     max: 100,
   },
+  accountType:{
+    type: String,
+    required: true
+  }
 
   // For only user role
   weight: {
