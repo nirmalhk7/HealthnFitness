@@ -67,7 +67,7 @@ export class Homepage extends React.Component {
                         </div>
                       </div>
                     </form> */}
-                    <SignUp />
+                    <SignUp id={this.props.id} />
                   </div>
                   <div className="col-md-4 bg-white text-center p-5">
                     <div className="desc border-bottom pb-4">

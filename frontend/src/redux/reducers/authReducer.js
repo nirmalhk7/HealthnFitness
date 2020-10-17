@@ -5,6 +5,7 @@ const initState = {
   token: null,
   id: null,
   type: null,
+  name: null,
 };
 
 const authReducer = (state = initState, action) => {
@@ -25,9 +26,13 @@ const authReducer = (state = initState, action) => {
       return state;
 
     case "SIGNUP_SUCCESS":
+      state.id = action._id;
+      state.authError = null;
+      state.type = action.accountType;
+      state.token = action.token;
+      state.name = action.name;
       return {
         ...state,
-        authError: null,
       };
     case "SIGNUP_FAILED":
       return {

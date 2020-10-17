@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "../shared/stylesheets/login-style.css";
-import { withRouter, Link, Redirect } from "react-router-dom";
-import { serverUrl } from "../shared/baseUrl";
 import { signIn } from "../redux/actions/authAction";
 import { connect } from "react-redux";
 class Login extends Component {

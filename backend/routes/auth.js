@@ -33,9 +33,17 @@ router.post("/signup", (req, res, next) => {
   new_user
     .save(req.body)
     .then((ans) =>
-      res.status(200).json({ _id: ans._id, token: ans.getJwtToken() })
+      res.status(200).json({
+        token: new_user.getJwtToken(),
+        _id: ans._id,
+        accountType: ans.accountType,
+        name: ans.name,
+      })
     )
-    .catch((err) => console.log("/signup", err));
+    .catch((err) => {
+      console.error(err);
+      res.status(420).json({ err: "Error" });
+    });
 });
 
 module.exports = router;
