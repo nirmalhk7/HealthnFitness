@@ -5,6 +5,7 @@ const initState = {
   token: null,
   id: null,
   type: null,
+  name: null,
 };
 
 const authReducer = (state = initState, action) => {
@@ -19,7 +20,7 @@ const authReducer = (state = initState, action) => {
       state.authError = null;
       state.type = action.accountType;
       state.token = action.token;
-      console.log("SUCCESS", state);
+      state.name = action.username;
       return { ...state };
     case "SIGNOUT_SUCCESS":
       return state;

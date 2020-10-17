@@ -8,14 +8,15 @@ export const signIn = (credentials) => {
     axios
       .post(`${SERVER}/auth/signin`, credentials)
       .then((res) => {
-        console.log(res, res.status);
+        console.log(res.data, res.status);
         if (res.status === 200) {
-          window.location.href = "/dashboard";
+          console.log("NAME", res.data.name);
           dispatch({
             type: "SIGNIN_SUCCESS",
             _id: res.data._id,
             token: res.data.token,
             accountType: res.data.accountType,
+            username: res.data.name,
           });
         } else {
           // alert("Invalid Username or Password")

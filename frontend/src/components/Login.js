@@ -13,6 +13,7 @@ class Login extends Component {
       password: "",
     };
     this.handleChangeField = this.handleChangeField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChangeField(key, event) {
     this.setState({
@@ -29,11 +30,13 @@ class Login extends Component {
     this.props.signIn(this.state);
   }
   render() {
-    if (this.props.id != null) alert("REPEAT");
+    if (this.props.authError === null || this.props.id) {
+      //TODO Redirect!
+    }
     return (
       <div className="login-wrapper" style={{}}>
         <div className="inner">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <h3>Sign In</h3>
 
             <div className="form-group">
@@ -67,9 +70,15 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth.authError,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     signIn: (creds) => dispatch(signIn(creds)),
   };
 };
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

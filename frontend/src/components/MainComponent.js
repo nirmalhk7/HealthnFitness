@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
 import SignUp from "./SignUp";
+import Todo from "./Todo";
 
 class Main extends Component {
   constructor(props) {
@@ -23,12 +24,13 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar auth={this.props.auth} />
         <Switch>
           <Route exact path="/" render={() => <Homepage />}></Route>
           <Route exact path="/contact" render={() => <ContactUs />}></Route>
-          <Route exact path="/signin" render={() => <Login id={this.props.id} />}></Route>
+          <Route exact path="/signin" render={() => <Login id={this.props.auth.id} />}></Route>
           <Route exact path="/signup" render={() => <SignUp />}></Route>
+          <Route exact path="/dashboard" render={() => <Todo />} />
           <Route exact path="/proffesionals" render={() => <FindProfessionals />} />
           <Route
             exact
@@ -44,9 +46,7 @@ class Main extends Component {
 const mapStateToProps = (state) => {
   console.log("MAP", state);
   return {
-    token: state.auth.token,
-    id: state.auth.id,
-    type: state.auth.type,
+    auth: state.auth,
   };
 };
 
