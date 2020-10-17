@@ -14,7 +14,7 @@ import Footer from "../partials/footer";
 import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
-import Cookies from "js-cookie";
+import SignUp from "./SignUp";
 
 class Main extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ class Main extends Component {
           <Route exact path="/" render={() => <Homepage />}></Route>
           <Route exact path="/contact" render={() => <ContactUs />}></Route>
           <Route exact path="/signin" render={() => <Login id={this.props.id} />}></Route>
+          <Route exact path="/signup" render={() => <SignUp />}></Route>
           <Route exact path="/proffesionals" render={() => <FindProfessionals />} />
           <Route
             exact

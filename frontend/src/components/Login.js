@@ -13,7 +13,6 @@ class Login extends Component {
       password: "",
     };
     this.handleChangeField = this.handleChangeField.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChangeField(key, event) {
     this.setState({
@@ -28,27 +27,6 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.signIn(this.state);
-    // const { user_email, user_password } = this.state;
-    // axios
-    //   .post(serverUrl + "auth/login", {
-    //     user_email,
-    //     user_password,
-    //   })
-    //   .then((res) => {
-    //     this.props.handleAccount(
-    //       res.data[0]["id"],
-    //       res.data[0]["email"],
-    //       res.data[0]["username"],
-    //       document.getElementById("customCheck1").checked
-    //     );
-    //     alert("Success");
-    //   })
-    //   .then(() => {
-    //     this.props.history.push("/");
-    //   })
-    //   .catch((err) => {
-    //     alert("Error");
-    //   });
   }
   render() {
     if (this.props.id != null) alert("REPEAT");
@@ -79,27 +57,9 @@ class Login extends Component {
                 placeholder="Enter password"
               />
             </div>
-
-            {/* <div className="form-group">
-              <div className="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customCheck1"
-                  checked
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                  Remember me
-                </label>
-              </div>
-            </div> */}
-
-            <button onClick={this.handleSubmit} type="submit" className="btn btn-primary btn-block">
+            <button type="submit" className="btn btn-primary btn-block">
               Submit
             </button>
-            <p className="forgot-password text-right">
-              Forgot <Link to="#">password?</Link>
-            </p>
           </form>
         </div>
       </div>
