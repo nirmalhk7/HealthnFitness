@@ -12,9 +12,10 @@ import "../assets/css/style.css";
 import Navbar from "./../partials/navbar";
 import Footer from "../partials/footer";
 import { connect } from "react-redux";
-import FindProfessionals, { SingleProfessional } from "./Professionals";
+import FindProfessionals from "./Professionals/Professionals";
 import ContactUs from "./ContactUs";
 import SignUp from "./SignUp";
+import SingleProfessional from "./Professionals/SingleProfessional";
 
 const Main = (props) => {
   return (
@@ -37,7 +38,6 @@ const Main = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log("MAP", state);
   return {
     token: state.auth.token,
     id: state.auth.id,

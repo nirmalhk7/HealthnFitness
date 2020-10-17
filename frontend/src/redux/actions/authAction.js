@@ -6,7 +6,6 @@ export const signIn = (credentials) => {
     axios
       .post(`${SERVER}/auth/signin`, credentials)
       .then((res) => {
-        console.log(res, res.status);
         if (res.status === 200) {
           dispatch({
             type: "SIGNIN_SUCCESS",
@@ -27,7 +26,6 @@ export const signUp = (credentials) => {
     axios
       .post(`${SERVER}/auth/signup`, credentials)
       .then((res) => {
-        console.log(res, res.status);
         if (res.status === 200) {
           dispatch({
             type: "SIGNUP_SUCCESS",

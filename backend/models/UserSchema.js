@@ -54,7 +54,7 @@ let UserSchema = new Schema({
     type: String,
   },
   phonenumber: {
-    type: Number,
+    type: String,
   },
 });
 
