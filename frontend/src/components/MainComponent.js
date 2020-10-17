@@ -14,13 +14,22 @@ import Footer from "../partials/footer";
 import { connect } from "react-redux";
 import FindProfessionals, { SingleProfessional } from "./Professionals";
 import ContactUs from "./ContactUs";
+import Cookies from "js-cookie";
 
 const mapStateToProps = (state) => {
+  console.log("MAP", state);
   return {
     user: state.user,
   };
 };
 class Main extends Component {
+  constructor(props) {
+    this.state = {
+      type: "CLIENT",
+      token: Cookies.get("hckcToken"),
+      id: Cookies.get("id"),
+    };
+  }
   render() {
     return (
       <div>

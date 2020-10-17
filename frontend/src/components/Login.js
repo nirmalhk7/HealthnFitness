@@ -3,13 +3,14 @@ import axios from "axios";
 import "../shared/stylesheets/login-style.css";
 import { withRouter, Link } from "react-router-dom";
 import { serverUrl } from "../shared/baseUrl";
+import { signIn } from "../redux/actions/authAction";
+import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_email: "",
-      user_password: "",
-      user_remember: true,
+      email: "inj",
+      password: "nml",
     };
     this.handleChangeField = this.handleChangeField.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,27 +27,28 @@ class Login extends Component {
   };
   handleSubmit(event) {
     event.preventDefault();
-    const { user_email, user_password } = this.state;
-    axios
-      .post(serverUrl + "auth/login", {
-        user_email,
-        user_password,
-      })
-      .then((res) => {
-        this.props.handleAccount(
-          res.data[0]["id"],
-          res.data[0]["email"],
-          res.data[0]["username"],
-          document.getElementById("customCheck1").checked
-        );
-        alert("Success");
-      })
-      .then(() => {
-        this.props.history.push("/");
-      })
-      .catch((err) => {
-        alert("Error");
-      });
+    this.props.signIn(this.state);
+    // const { user_email, user_password } = this.state;
+    // axios
+    //   .post(serverUrl + "auth/login", {
+    //     user_email,
+    //     user_password,
+    //   })
+    //   .then((res) => {
+    //     this.props.handleAccount(
+    //       res.data[0]["id"],
+    //       res.data[0]["email"],
+    //       res.data[0]["username"],
+    //       document.getElementById("customCheck1").checked
+    //     );
+    //     alert("Success");
+    //   })
+    //   .then(() => {
+    //     this.props.history.push("/");
+    //   })
+    //   .catch((err) => {
+    //     alert("Error");
+    //   });
   }
   render() {
     const { user_email, user_password } = this.state;
@@ -59,7 +61,7 @@ class Login extends Component {
             <div className="form-group">
               <input
                 required
-                onChange={(ev) => this.handleChangeField("user_email", ev)}
+                onChange={(ev) => this.handleChangeField("email", ev)}
                 value={user_email}
                 type="text"
                 className="form-control"
@@ -70,7 +72,7 @@ class Login extends Component {
             <div className="form-group">
               <input
                 required
-                onChange={(ev) => this.handleChangeField("user_password", ev)}
+                onChange={(ev) => this.handleChangeField("password", ev)}
                 type="password"
                 value={user_password}
                 className="form-control"
@@ -78,7 +80,7 @@ class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
               <div className="custom-control custom-checkbox">
                 <input
                   type="checkbox"
@@ -90,13 +92,9 @@ class Login extends Component {
                   Remember me
                 </label>
               </div>
-            </div>
+            </div> */}
 
-            <button
-              onClick={this.handleSubmit}
-              type="submit"
-              className="btn btn-primary btn-block"
-            >
+            <button onClick={this.handleSubmit} type="submit" className="btn btn-primary btn-block">
               Submit
             </button>
             <p className="forgot-password text-right">
@@ -108,4 +106,16 @@ class Login extends Component {
     );
   }
 }
-export default withRouter(Login);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    authError: state.auth.authError,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (creds) => dispatch(signIn(creds)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
