@@ -12,6 +12,7 @@ export const signIn = (credentials) => {
             _id: res.data._id,
             token: res.data.token,
             accountType: res.data.accountType,
+            name: res.data.name,
           });
         } else {
           dispatch({ type: "SIGNIN_ERROR" });

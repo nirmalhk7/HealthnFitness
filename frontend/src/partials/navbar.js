@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => (
+const Navbar = (props) => (
   <>
     <div className="fixed-top">
       <div className="wrap">
@@ -12,22 +12,28 @@ const Navbar = () => (
                 MuscleTime
               </Link>
             </div>
-            <div className="col-md-7">
-              <div className="row">
-                <div className="col-md-8 mb-md-0 mb-3"></div>
-                <Link to="/profile" className="col">
-                  <div className="top-wrap d-flex">
-                    <div className="icon d-flex align-items-center justify-content-center">
-                      <span className="fa fa-user" />
-                    </div>
-                    <div className="text">
-                      <span>Hello</span>
-                      <span>Nirmal Khedkar</span>
-                    </div>
+            {props.auth.id ? (
+              <>
+                <div className="col-md-7">
+                  <div className="row">
+                    <div className="col-md-8 mb-md-0 mb-3"></div>
+                    <Link to="/profile" className="col">
+                      <div className="top-wrap d-flex">
+                        <div className="icon d-flex align-items-center justify-content-center">
+                          <span className="fa fa-user" />
+                        </div>
+                        <div className="text">
+                          <span>Hello</span>
+                          <span>{props.auth.name}</span>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
-                </Link>
-              </div>
-            </div>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

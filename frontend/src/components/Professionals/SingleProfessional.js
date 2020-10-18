@@ -19,6 +19,7 @@ const SingleProfessional = (props) => {
           <div className="col-md-6">
             <div className="profile-head">
               <h5>{props.name}</h5>
+              <button className="btn btn-secondary">Register</button>
             </div>
           </div>
         </div>

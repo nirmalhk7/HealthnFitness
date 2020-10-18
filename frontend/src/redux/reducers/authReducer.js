@@ -1,4 +1,5 @@
 // import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const initState = {
   authError: null,
@@ -20,6 +21,7 @@ const authReducer = (state = initState, action) => {
       state.authError = null;
       state.type = action.accountType;
       state.token = action.token;
+      state.name = action.name;
       console.log("SUCCESS", state);
       return { ...state };
     case "SIGNOUT_SUCCESS":

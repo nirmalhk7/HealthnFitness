@@ -12,7 +12,14 @@ router.post("/signin", (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (user != null && user.validPassword(req.body.password)) {
-        res.status(200).json({ token: user.getJwtToken(), _id: user._id });
+        res
+          .status(200)
+          .json({
+            token: user.getJwtToken(),
+            _id: user._id,
+            accountType: user.accountType,
+            name: user.name,
+          });
       } else {
         res.status(250).json({ message: "Invalid Username or Password" });
       }

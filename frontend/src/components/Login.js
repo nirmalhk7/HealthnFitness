@@ -10,6 +10,7 @@ class Login extends Component {
       password: "",
     };
     this.handleChangeField = this.handleChangeField.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChangeField(key, event) {
     this.setState({
@@ -26,11 +27,10 @@ class Login extends Component {
     this.props.signIn(this.state);
   }
   render() {
-    if (this.props.id != null) alert("REPEAT");
     return (
       <div className="login-wrapper" style={{}}>
         <div className="inner">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <h3>Sign In</h3>
 
             <div className="form-group">
@@ -54,9 +54,7 @@ class Login extends Component {
                 placeholder="Enter password"
               />
             </div>
-            <button type="submit" className="btn btn-primary btn-block">
-              Submit
-            </button>
+            <button className="btn btn-primary btn-block">Submit</button>
           </form>
         </div>
       </div>
