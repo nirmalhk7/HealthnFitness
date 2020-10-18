@@ -21,11 +21,8 @@ export class Homepage extends React.Component {
                 <div className="row no-gutters slider-text align-items-center justify-content-end">
                   <div className="col-md-6 ">
                     <div className="text w-100">
-                      <h1 className="mb-4">Welcome to our Health & Fitness centre</h1>
-                      <p>
-                        Far far away, behind the word mountains, far from the countries Vokalia and
-                        Consonantia, there live the blind texts.
-                      </p>
+                      <h1 className="mb-4">Welcome to our Health & Fitness!</h1>
+                      <p></p>
                       <p>
                         {/* <a href="#" className="btn btn-primary">
                           Book an appointment
