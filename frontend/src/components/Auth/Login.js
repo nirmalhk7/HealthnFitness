@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "../shared/stylesheets/login-style.css";
-import { signIn } from "../redux/actions/authAction";
+import "../../shared/stylesheets/login-style.css";
+// import "../../"
+import { signIn } from "../../redux/actions/authAction";
 import { connect } from "react-redux";
 class Login extends Component {
   constructor(props) {

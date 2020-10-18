@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../shared/stylesheets/signup-style.css";
+// import "../shared/stylesheets/signup-style.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { signUp } from "../redux/actions/authAction";
+import { signUp } from "./../../redux/actions/authAction";
 
 class SignUp extends Component {
   constructor(props) {

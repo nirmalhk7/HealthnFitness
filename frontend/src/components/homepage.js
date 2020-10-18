@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/homepage.css";
 import image from "../images/nutrition.jpeg";
-import SignUp from "./SignUp";
+import SignUp from "./Auth/SignUp";
 
 export class Homepage extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export class Homepage extends React.Component {
                 <div className="row no-gutters slider-text align-items-center justify-content-end">
                   <div className="col-md-6 ">
                     <div className="text w-100">
-                      <h1 className="mb-4">Welcome to our chiropractic centre</h1>
+                      <h1 className="mb-4">Welcome to our Health & Fitness centre</h1>
                       <p>
                         Far far away, behind the word mountains, far from the countries Vokalia and
                         Consonantia, there live the blind texts.
@@ -111,7 +111,7 @@ export class Homepage extends React.Component {
               <div className="col-md-4 services ">
                 <div className="d-block d-flex">
                   <div className="icon d-flex justify-content-center align-items-center">
-                    <span className="flaticon-chiropractic"></span>
+                    <span className="flaticon-Health & Fitness"></span>
                   </div>
                   <div className="media-body pl-3">
                     <h3 className="heading">Spinal Manupulation</h3>
@@ -239,8 +239,8 @@ export class Homepage extends React.Component {
               <div className="col-md-6 pr-md-5 py-md-5">
                 <div className="row justify-content-start py-5">
                   <div className="col-md-12 heading-section ">
-                    <span className="subheading">Welcome to Chiropractic</span>
-                    <h2 className="mb-4">About Chiropractic</h2>
+                    <span className="subheading">Welcome to Health & Fitness</span>
+                    <h2 className="mb-4">About Health & Fitness</h2>
                     <p>
                       Far far away, behind the word mountains, far from the countries Vokalia and
                       Consonantia, there live the blind texts. Separated they live in Bookmarksgrove

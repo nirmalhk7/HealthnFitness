@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Homepage } from "./homepage";
-import Login from "./Login";
+import Login from "./Auth/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Cookies from "js-cookie";
@@ -15,7 +15,7 @@ import Footer from "../partials/footer";
 import { connect } from "react-redux";
 import FindProfessionals from "./Professionals/Professionals";
 import ContactUs from "./ContactUs";
-import SignUp from "./SignUp";
+import SignUp from "./Auth/SignUp";
 import SingleProfessional from "./Professionals/SingleProfessional";
 import About from "./About";
 

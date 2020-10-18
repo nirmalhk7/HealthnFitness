@@ -9,7 +9,7 @@ const Navbar = (props) => (
           <div className="row justify-content-between">
             <div className="col-md-3 mb-md-0 mb-4 d-flex align-items-center">
               <Link className="navbar-brand" to="index">
-                MuscleTime
+                Health & Fitness
               </Link>
             </div>
             {props.auth.id ? (
@@ -17,7 +17,7 @@ const Navbar = (props) => (
                 <div className="col-md-7">
                   <div className="row">
                     <div className="col-md-8 mb-md-0 mb-3"></div>
-                    <Link to="/profile" className="col">
+                    <Link to={"/profile/" + props.auth.username} className="col">
                       <div className="top-wrap d-flex">
                         <div className="icon d-flex align-items-center justify-content-center">
                           <span className="fa fa-user" />

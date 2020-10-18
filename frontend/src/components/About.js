@@ -27,7 +27,7 @@ const About = () => {
         <div class="container">
           <div class="row">
             <div class="col-md-8">
-              <h4>Chiropractic History</h4>
+              <h4>Health & Fitness History</h4>
               <p>
                 Far far away, behind the word mountains, far from the countries Vokalia and
                 Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right

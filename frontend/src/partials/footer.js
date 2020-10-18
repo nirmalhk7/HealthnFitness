@@ -8,7 +8,7 @@ const Footer = () => (
         <div className="col-md-6 col-lg">
           <div className="ftco-footer-widget py-4 py-md-5">
             <h2 className="logo">
-              <Link to="/">Chiropractic</Link>
+              <Link to="/">Health & Fitness</Link>
             </h2>
             <p>
               Far far away, behind the word mountains, far from the countries Vokalia and
