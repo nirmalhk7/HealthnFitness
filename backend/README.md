@@ -1,4 +1,4 @@
-# Muscletime
+# Health & Fitness
 
 Develop fitness pseudo web application targeting health-conscious people to track their habits assisted by registered nutritionists, pathologists, and health coaches in order to ultimately lower the risk of lifestyle disorders.
 
